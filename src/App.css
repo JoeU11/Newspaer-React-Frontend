@@ -13,6 +13,14 @@
   }
 }
 
+nav {
+  display: flex;
+  align-content: left;
+  justify-content: space-between;
+  background-color: antiquewhite;
+  margin-bottom: 15px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -32,6 +40,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
