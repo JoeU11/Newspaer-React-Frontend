@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+html {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(230, 220, 197);
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -17,8 +23,9 @@ nav {
   display: flex;
   align-content: left;
   justify-content: space-between;
-  background-color: antiquewhite;
+  background-color: rgb(73, 83, 97);
   margin-bottom: 15px;
+  color: white
 }
 
 .App-header {
@@ -44,4 +51,35 @@ nav {
   to {
     transform: rotate(360deg);
   }
+}
+
+.modal-background {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.modal-main {
+  position: fixed;
+  background: white;
+  width: 80%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1em;
+}
+
+.modal-main button.close {
+  font-size: 2em;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 0em;
+  right: 0.2em;
 }

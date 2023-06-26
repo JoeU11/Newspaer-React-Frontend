@@ -6,11 +6,16 @@ import Navbar from "./components/navbar.js"
 import Article from "./components/article.js"
 import ArticleShow from "./components/showArticle.js"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Signup from "./components/signup.js";
+import Login from "./components/login.js";
+import Logout from "./components/logout.js";
+import Modal from "./components/modal.js"
 
 import TestComponent from "./components/testComponent"
 
 function App() {
   const [articles, setArticles] = useState([])
+  const [showModal, setShowModal] = useState(false)
 
   function getArticles() {
     console.log("getting articles")
@@ -28,6 +33,13 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <Signup />
+      <Login />
+      <Logout />
+      <Modal show={showModal} onClose={() => setShowModal(false)} >
+        <Login />
+      </Modal>
+      <button onClick={() => { setShowModal(true) }}>Log In</button>
       <Router>
         <Routes>
           <Route path="/" element={articleElements} />
@@ -39,24 +51,3 @@ function App() {
 }
 
 export default App;
-
-// import React, { Suspense, lazy } from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Home from "./components/navbar.js"
-// import About from "./components/testComponent.js"
-
-// const Home = lazy(() => import('./components/navbar'));
-// const About = lazy(() => import('./components/testComponent'));
-
-// const App = () => (
-//   <Router>
-//     <Suspense fallback={<div>Loading...</div>}>
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-//         <Route path="/about" element={<About />} />
-//       </Routes>
-//     </Suspense>
-//   </Router>
-// );
-
-// export default App;
