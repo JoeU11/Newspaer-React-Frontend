@@ -10,6 +10,7 @@ import Signup from "./components/signup.js";
 import Login from "./components/login.js";
 import Logout from "./components/logout.js";
 import Modal from "./components/modal.js"
+import PostArticle from "./components/postArticle.js"
 
 import TestComponent from "./components/testComponent"
 
@@ -49,6 +50,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={articleElements} />
+          <Route path="/articles/new" element={<PostArticle />} />
           <Route path="/articles/:id" element={<ArticleShow />} />
         </Routes>
       </Router>

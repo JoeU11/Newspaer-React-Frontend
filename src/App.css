@@ -28,6 +28,11 @@ nav {
   color: white
 }
 
+.nav-link {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
