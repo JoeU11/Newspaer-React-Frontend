@@ -16,6 +16,14 @@ export default function ArticleShow() {
     })
   }
 
+  function destroyArticle() {
+    console.log("removing article")
+    axios.delete(`http://localhost:3000/articles/${article.id}`).then(response => {
+      console.log(response.data)
+      window.location.href = "/"
+    })
+  }
+
   useEffect(getArticle, [])
 
   if (loading) return (
@@ -27,6 +35,7 @@ export default function ArticleShow() {
       <h1>{article.title}</h1>
       <p> by {article.author}</p>
       <p>{article.text}</p>
+      <button onClick={destroyArticle}>remove article</button>
     </div>
   )
 }
