@@ -1,10 +1,13 @@
 import { Routes, Route, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Modal from './modal.js'
+import ArticleEdit from './articleEdit.js'
 
 export default function ArticleShow() {
   const params = useParams()
   const [article, setArticle] = useState()
+  const [showModal, setShowModal] = useState(false)
   const [loading, setLoading] = useState(true)
 
   function getArticle() {
@@ -35,6 +38,10 @@ export default function ArticleShow() {
       <h1>{article.title}</h1>
       <p> by {article.author}</p>
       <p>{article.text}</p>
+      <Modal show={showModal} onClose={() => setShowModal(false)}>
+        <ArticleEdit {...article} />
+      </Modal>
+      <button onClick={() => setShowModal(true)}>Edit</button>
       <button onClick={destroyArticle}>remove article</button>
     </div>
   )
