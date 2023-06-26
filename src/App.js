@@ -16,6 +16,16 @@ import TestComponent from "./components/testComponent"
 function App() {
   const [articles, setArticles] = useState([])
   const [showModal, setShowModal] = useState(false)
+  const [modalContent, setModalContent] = useState(null)
+
+  function login() {
+    setShowModal(true)
+    setModalContent(<Login />)
+  }
+  function signup() {
+    setShowModal(true)
+    setModalContent(<Signup />)
+  }
 
   function getArticles() {
     console.log("getting articles")
@@ -32,14 +42,10 @@ function App() {
   useEffect(getArticles, [])
   return (
     <div className="App">
-      <Navbar />
-      <Signup />
-      <Login />
-      <Logout />
+      <Navbar login={login} signup={signup} show={() => setShowModal(true)} />
       <Modal show={showModal} onClose={() => setShowModal(false)} >
-        <Login />
+        {modalContent}
       </Modal>
-      <button onClick={() => { setShowModal(true) }}>Log In</button>
       <Router>
         <Routes>
           <Route path="/" element={articleElements} />
